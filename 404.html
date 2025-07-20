@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official website of the Aetherian Government - Regnum Aetherianorum">
+    <meta name="keywords" content="Aetherian, Government, Official, Services, Citizens">
+    <title>Homepage - Aetherian Government Portal</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <script src="https://aethgov.pages.dev/navbar.js"></script>
+</head>
+<body class="scroll">
+    <div id="container">
+        <!-- Header Section -->
+        <header id="header">
+            <div style="display: flex; align-items: center; justify-content: center; padding: 20px;">
+                <img src="https://aethgov.pages.dev/assets/coatofarms.png" alt="Aetherian Coat of Arms" style="height: 60px; margin-right: 20px;">
+                <h1 class="title" style="margin: 0;">AETHERIAN GOVERNMENT</h1>
+            </div>
+        </header>
+
+        <!-- Navigation Menu - Will be loaded from navbar.html -->
+        <nav class="navbar" role="navigation" aria-label="Main navigation" id="navbar-container">
+            <!-- Navigation will be loaded here by JavaScript -->
+        </nav>
+
+        <!-- Main Content Wrapper -->
+            <!-- Main Content Area -->
+            <section class="main-content">
+                <div class="section-title">Error 404: Page does not exist or has been deleted.</div>
+                <div class="content">
+                    <p><strong>Welcome, Citizens of Aetheria!</strong></p>
+                    <p>This is the official government portal for Regnum Aetherianorum. Here you can access government services, find important information, and stay updated with the latest news and announcements from your government.</p>
+                    
+                </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>© 2025 Official Government of Regnum Aetherianorum | <a href="#" style="color: var(--accent);">Privacy Policy</a> | <a href="#" style="color: var(--accent);">Terms of Use</a> | <a href="#" style="color: var(--accent);">Accessibility</a></p>
+    </footer>
+
+    <!-- JavaScript for enhanced accessibility -->
+    <script>
+        // Add keyboard navigation support for dropdowns
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.navbar li');
+            
+            menuItems.forEach(item => {
+                const link = item.querySelector('a');
+                const submenu = item.querySelector('.subitems');
+                
+                if (submenu) {
+                    link.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                            this.setAttribute('aria-expanded', !isExpanded);
+                        }
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function(e) {
+                        if (!item.contains(e.target)) {
+                            link.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
