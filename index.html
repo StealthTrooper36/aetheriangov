@@ -5,67 +5,232 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Official website of the Aetherian Government - Regnum Aetherianorum">
     <meta name="keywords" content="Aetherian, Government, Official, Services, Citizens">
-    <title>Homepage - Aetherian Government Portal</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <title>Official Government Portal - Regnum Aetherianorum</title>
+    <link href="https://aethgov.pages.dev/styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="https://aethgov.pages.dev/assets/favicon.ico">
+    <style>
+        /* Government-specific styling enhancements */
+        .official-seal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--dk-color) 0%, var(--accent) 100%);
+            color: white;
+            margin-bottom: 0;
+        }
+        
+        .seal-content {
+            text-align: center;
+        }
+        
+        .seal-content .title {
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 10px 0 5px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .seal-subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.9;
+            margin: 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        
+        .navbar {
+            background: var(--dkest-color);
+            border: none;
+            padding: 0;
+        }
+        
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar li {
+            margin: 0;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .navbar li:last-child {
+            border-right: none;
+        }
+        
+        .navbar a {
+            color: white;
+            padding: 16px 24px;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar a:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .alert-banner {
+            background: linear-gradient(90deg, #d32f2f 0%, #f57c00 100%);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .official-notice {
+            background: var(--dk-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent);
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .service-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .service-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .service-card h4 {
+            color: var(--dk-color);
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .news-item {
+            background: white;
+            border: 1px solid #eee;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .news-date {
+            font-size: 10px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .officials-card {
+            background: white;
+            border: 1px solid #eee;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        .official-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--dk-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        
+        .emergency-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d32f2f;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+            }
+            
+            .navbar li {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seal-content .title {
+                font-size: 28px;
+            }
+            
+            .seal-subtitle {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body class="scroll">
     <div id="container">
-        <!-- Header Section -->
-        <header id="header">
-            <div style="display: flex; align-items: center; justify-content: center; padding: 20px;">
-                <img src="https://aethgov.pages.dev/assets/coatofarms.png" alt="Aetherian Coat of Arms" style="height: 60px; margin-right: 20px;">
-                <h1 class="title" style="margin: 0;">AETHERIAN GOVERNMENT</h1>
+        <!-- Official Government Header -->
+        <header id="header" class="official-seal">
+            <img src="https://aethgov.pages.dev/assets/coatofarms.png" alt="Aetherian Coat of Arms" style="height: 80px; margin-right: 30px;">
+            <div class="seal-content">
+                <h1 class="title">REGNUM AETHERIANORUM</h1>
+                <p class="seal-subtitle">Official Government Portal</p>
             </div>
         </header>
 
-        <!-- Navigation Menu -->
+        <!-- Alert Banner -->
+        <div class="alert-banner">
+            🏛️ Official Government Website - For Citizen Services and Information
+        </div>
+
+        <!-- Simplified Navigation Menu -->
         <nav class="navbar" role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="/" aria-current="page">Home</a></li>
-                <li>
-                    <a href="#" aria-haspopup="true" aria-expanded="false">Services</a>
-                    <ul class="subitems">
-                        <li><a href="#">Immigrate to Aetheria</a></li>
-                        <li><a href="#">Document Services</a></li>
-                        <li><a href="#">Business Licensing</a></li>
-                        <li><a href="#">Tax Services</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" aria-haspopup="true" aria-expanded="false">Government</a>
-                    <ul class="subitems">
-                        <li><a href="#">Vasillian Gov/Aethnikratia</a></li>
-                        <li><a href="#">Parliament</a></li>
-                        <li><a href="#">Provincies</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" aria-haspopup="true" aria-expanded="false">Departments</a>
-                    <ul class="subitems">
-                        <li><a href="#">Dorenda Intelligence Agency</a></li>
-                        <li><a href="#">Ministry of Finance</a></li>
-                        <li><a href="#">Ministry of Education</a></li>
-                        <li><a href="#">Ministry of Health</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" aria-haspopup="true" aria-expanded="false">Resources</a>
-                    <ul class="subitems">
-                        <li><a href="#">Laws & Regulations</a></li>
-                        <li><a href="#">Public Relations</a></li>
-                        <li><a href="#">Forms & Applications</a></li>
-                        <li><a href="#">History</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" aria-haspopup="true" aria-expanded="false">News & Media</a>
-                    <ul class="subitems">
-                        <li><a href="#">Press Releases</a></li>
-                        <li><a href="#">Official Announcements</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#services">Government Services</a></li>
+                <li><a href="#officials">Leadership</a></li>
+                <li><a href="foreign-relations.html">Foreign Relations</a></li>
+                <li><a href="#announcements">Official News</a></li>
+                <li><a href="#contact">Contact Government</a></li>
             </ul>
         </nav>
 
@@ -73,82 +238,151 @@
         <main class="wrapper">
             <!-- Left Sidebar -->
             <aside id="left-sidebar">
-                <div class="section-title">Quick Services</div>
+                <div class="section-title">🚨 Emergency Services</div>
                 <div class="content">
-                    <ul class="list">
-                        <li><a href="#">Voter Information</a></li>
-                        <li><a href="#">Permit Applications</a></li>
-                        <li><a href="#">Public Records Request</a></li>
-                        <li><a href="#">Report an Issue</a></li>
-                    </ul>
+                    <div class="contact-info">
+                        <div class="emergency-number">📞 999</div>
+                        <p><strong>Emergency Services</strong><br>
+                        Police, Fire, Medical</p>
+                        
+                        <div class="emergency-number" style="font-size: 16px; color: var(--dk-color);">📞 101</div>
+                        <p><strong>Non-Emergency</strong><br>
+                        General inquiries</p>
+                        
+                        <p><strong>Current Status:</strong><br>
+                        <span style="color: green;">●</span> All services operational</p>
+                    </div>
                 </div>
                 
-                <div class="section-title">Emergency Information</div>
+                <div class="section-title">📋 Quick Services</div>
                 <div class="content">
-                    <p><strong>Emergency Hotline:</strong><br>
-                    📞 999 (General Emergency)<br>
-                    📞 101 (Non-Emergency Services)</p>
-                    <p><strong>Weather Alerts:</strong><br>
-                    No active weather warnings</p>
+                    <ul class="list">
+                        <li><a href="#voting">Voter Registration</a></li>
+                        <li><a href="#permits">Permits & Licenses</a></li>
+                        <li><a href="#records">Public Records</a></li>
+                        <li><a href="#report">Report Issues</a></li>
+                        <li><a href="#tax">Tax Information</a></li>
+                    </ul>
                 </div>
             </aside>
 
             <!-- Main Content Area -->
             <section class="main-content">
-                <div class="section-title">Welcome to the Official Aetherian Government Portal</div>
-                <div class="content">
-                    <p><strong>Welcome, Citizens of Aetheria!</strong></p>
-                    <p>This is the official government portal for Regnum Aetherianorum. Here you can access government services, find important information, and stay updated with the latest news and announcements from your government.</p>
-                    
-                    <h3>Featured Services:</h3>
-                    <ul class="list">
-                        <li><strong>Digital Services Hub</strong> - Access most government services online, 24/7</li>
-                        <li><strong>Citizen Portal</strong> - Manage your government interactions in one secure location</li>
-                        <li><strong>Business Center</strong> - Resources for starting and managing businesses in Aetheria</li>
-                        <li><strong>Public Information</strong> - Transparent access to government data and decisions</li>
-                    </ul>
+                <div class="official-notice">
+                    <strong>🏛️ OFFICIAL GOVERNMENT NOTICE</strong><br>
+                    This is the official website of the Regnum Aetherianorum. 
+                    All government services, announcements, and official information are provided here.
+                </div>
 
-                    <h3>Recent Updates:</h3>
-                    <div style="background-color: #f0f8ff; padding: 10px; border-left: 4px solid var(--accent); margin: 10px 0;">
-                        <p><strong>📢 New Digital ID System Launched</strong><br>
-                        Citizens can now apply for digital identification cards online. <a href="#">Learn more →</a></p>
+                <div id="services">
+                    <div class="section-title">Government Services</div>
+                    <div class="content">
+                        <div class="service-grid">
+                            <div class="service-card">
+                                <div class="service-icon">🆔</div>
+                                <h4>Citizen Services</h4>
+                                <p>ID cards, citizenship applications, and personal documents</p>
+                            </div>
+                            
+                            <div class="service-card">
+                                <div class="service-icon">🏢</div>
+                                <h4>Business Services</h4>
+                                <p>Business registration, licenses, and commercial permits</p>
+                            </div>
+                            
+                            <div class="service-card">
+                                <div class="service-icon">💰</div>
+                                <h4>Tax Services</h4>
+                                <p>Tax filing, payments, and financial obligations</p>
+                            </div>
+                            
+                            <div class="service-card">
+                                <div class="service-icon">⚖️</div>
+                                <h4>Legal Services</h4>
+                                <p>Court information, legal documents, and judicial services</p>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div style="background-color: #f0fff0; padding: 10px; border-left: 4px solid #28a745; margin: 10px 0;">
-                        <p><strong>🏛️ Legislative Assembly Session</strong><br>
-                        Next public session scheduled for March 15th. <a href="#">View agenda →</a></p>
+                </div>
+
+                <div id="announcements">
+                    <div class="section-title">Official Announcements</div>
+                    <div class="content">
+                        <div class="news-item">
+                            <div class="news-date">March 15, 2025</div>
+                            <h4>🆔 New Digital ID System Operational</h4>
+                            <p>Citizens can now apply for digital identification through our secure online portal. Enhanced security features protect citizen data.</p>
+                        </div>
+                        
+                        <div class="news-item">
+                            <div class="news-date">March 10, 2025</div>
+                            <h4>🏛️ Parliamentary Session Schedule</h4>
+                            <p>Next legislative session scheduled for March 22nd. Public gallery available for citizen observation.</p>
+                        </div>
+                        
+                        <div class="news-item">
+                            <div class="news-date">March 8, 2025</div>
+                            <h4>🌍 International Trade Agreement</h4>
+                            <p>Regnum Aetherianorum signs comprehensive trade agreement with regional partners, strengthening economic cooperation.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Right Sidebar -->
             <aside id="right-sidebar">
-                <div class="section-title">Government Officials</div>
-                <div class="content">
-                    <p><strong>Vasillia</strong><br>
-                    <a href="https://www.roblox.com/users/3971598522/profile">StealthTrooper36</a></p>
-                    <p><strong>Prime Minister</strong><br>
-                    <a href="https://www.roblox.com/users/939290906/profile">ArmyAadam123</a></p>
-                    <p><a href="#">View all officials →</a></p>
+                <div class="section-title">🏛️ Government Leadership</div>
+                <div class="content" id="officials">
+                    <div class="officials-card">
+                        <div class="official-title">Vasillia (Head of State)</div>
+                        <p><strong>StealthTrooper36</strong></p>
+                        <p>Chief Executive and Constitutional Leader</p>
+                    </div>
+                    
+                    <div class="officials-card">
+                        <div class="official-title">Prime Minister</div>
+                        <p><strong>ArmyAadam123</strong></p>
+                        <p>Head of Government Operations</p>
+                    </div>
+                    
+                    <p style="text-align: center;"><a href="#government">View Full Cabinet →</a></p>
                 </div>
 
-                <div class="section-title">Upcoming Events</div>
+                <div class="section-title">📅 Upcoming Events</div>
                 <div class="content">
-                    <p><strong>March 15, 2025</strong><br>
-                    Legislative Assembly Session</p>
-                    <p><strong>March 22, 2025</strong><br>
-                    Public Budget Hearing</p>
-                    <p><strong>April 1, 2025</strong><br>
-                    Tax Filing Deadline</p>
-                    <p><a href="#">View full calendar →</a></p>
+                    <div class="contact-info">
+                        <p><strong>March 22, 2025</strong><br>
+                        📍 Parliamentary Session<br>
+                        <small>Public attendance welcomed</small></p>
+                        
+                        <p><strong>March 25, 2025</strong><br>
+                        📍 Budget Review Meeting<br>
+                        <small>Citizen input period</small></p>
+                        
+                        <p><strong>April 1, 2025</strong><br>
+                        📍 Tax Filing Deadline<br>
+                        <small>All citizens and businesses</small></p>
+                    </div>
                 </div>
 
-                <div class="section-title">Connect With Us</div>
-                <div class="content">
-                    <p>Stay informed about government news and services:</p>
-                    <p>📧 <a href="#">Subscribe to Newsletter</a><br>
-                    📱 <a href="#">Follow on Social Media</a><br>
-                    📺 <a href="#">Watch Government TV</a></p>
+                <div class="section-title">📞 Government Contact</div>
+                <div class="content" id="contact">
+                    <div class="contact-info">
+                        <p><strong>🏛️ Main Office:</strong><br>
+                        +XX-XXX-XXXX</p>
+                        
+                        <p><strong>📧 Email:</strong><br>
+                        info@aetheria.gov</p>
+                        
+                        <p><strong>📍 Address:</strong><br>
+                        Government House<br>
+                        Capital District<br>
+                        Regnum Aetherianorum</p>
+                        
+                        <p><strong>🕐 Office Hours:</strong><br>
+                        Mon-Fri: 8:00-17:00<br>
+                        Sat: 9:00-13:00</p>
+                    </div>
                 </div>
             </aside>
         </main>
@@ -156,37 +390,63 @@
 
     <!-- Footer -->
     <footer id="footer">
-        <p>© 2025 Official Government of Regnum Aetherianorum | <a href="#" style="color: var(--accent);">Privacy Policy</a> | <a href="#" style="color: var(--accent);">Terms of Use</a> | <a href="#" style="color: var(--accent);">Accessibility</a></p>
+        <p>© 2025 Official Government of Regnum Aetherianorum | 
+        <a href="#privacy" style="color: var(--accent);">Privacy Policy</a> | 
+        <a href="#terms" style="color: var(--accent);">Terms of Use</a> | 
+        <a href="#accessibility" style="color: var(--accent);">Accessibility</a></p>
     </footer>
 
-    <!-- JavaScript for enhanced accessibility -->
+    <!-- Enhanced JavaScript for government functionality -->
     <script>
-        // Add keyboard navigation support for dropdowns
         document.addEventListener('DOMContentLoaded', function() {
-            const menuItems = document.querySelectorAll('.navbar li');
+            // Add smooth scrolling for internal links
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
             
-            menuItems.forEach(item => {
-                const link = item.querySelector('a');
-                const submenu = item.querySelector('.subitems');
+            // Add current time display
+            function updateTime() {
+                const now = new Date();
+                const timeString = now.toLocaleString('en-GB', {
+                    timeZone: 'Europe/London',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
                 
-                if (submenu) {
-                    link.addEventListener('keydown', function(e) {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                            this.setAttribute('aria-expanded', !isExpanded);
-                        }
-                    });
-                    
-                    // Close dropdown when clicking outside
-                    document.addEventListener('click', function(e) {
-                        if (!item.contains(e.target)) {
-                            link.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                }
+                // You can add a time display element if needed
+                console.log('Government Portal accessed at:', timeString);
+            }
+            
+            updateTime();
+            setInterval(updateTime, 60000); // Update every minute
+            
+            // Add keyboard navigation enhancement
+            const navLinks = document.querySelectorAll('.navbar a');
+            navLinks.forEach(link => {
+                link.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        this.click();
+                    }
+                });
             });
         });
+        
+        // Government-specific security notice (optional)
+        console.log('%cOFFICIAL GOVERNMENT WEBSITE', 'color: #320e4e; font-size: 20px; font-weight: bold;');
+        console.log('%cThis is the official website of Regnum Aetherianorum. Be cautious of imposter sites.', 'color: #662299; font-size: 12px;');
     </script>
 </body>
 </html>
