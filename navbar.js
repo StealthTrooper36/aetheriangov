@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.text();
             })
             .then(html => {
+                // Insert the HTML directly - this maintains the structure your CSS expects
                 navbarContainer.innerHTML = html;
                 
                 // Initialize dropdown functionality after navbar is loaded
@@ -49,11 +50,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function createFallbackNavbar() {
         const navbarContainer = document.getElementById('navbar-container');
         navbarContainer.innerHTML = `
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/foreign-relations.html">Foreign Relations</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
+            <header id="header" class="official-seal">
+                <img src="https://aethgov.pages.dev/assets/coatofarms.png" alt="Aetherian Coat of Arms" style="height: 80px; margin-right: 30px;">
+                <div class="seal-content">
+                    <h1 class="title">REGNUM AETHERIANORUM</h1>
+                    <p class="seal-subtitle">Official Government Portal</p>
+                </div>
+            </header>
+            <div class="alert-banner">
+                🏛️ Official Government Website - For Citizen Services and Information
+            </div>
+            <nav class="navbar" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/foreign-relations.html">Foreign Relations</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
         `;
         console.log('Fallback navbar loaded');
     }
