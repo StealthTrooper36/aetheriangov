@@ -65,7 +65,9 @@ p a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#header {
+/* Updated to work with navbar-container */
+#header,
+#navbar-container #header {
     max-width: 1000px;
     margin: 0 auto;
     background-color: var(--mid-color);
@@ -81,7 +83,8 @@ p a {
 }
 
 /* ===== GOVERNMENT OFFICIAL SEAL & HEADER ===== */
-.official-seal {
+.official-seal,
+#navbar-container .official-seal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,7 +117,8 @@ p a {
 }
 
 /* ===== ALERT & NOTIFICATION BANNERS ===== */
-.alert-banner {
+.alert-banner,
+#navbar-container .alert-banner {
     background: linear-gradient(90deg, #d32f2f 0%, #f57c00 100%);
     color: white;
     text-align: center;
@@ -125,7 +129,8 @@ p a {
     letter-spacing: 1px;
 }
 
-.alert-banner.diplomatic {
+.alert-banner.diplomatic,
+#navbar-container .alert-banner.diplomatic {
     background: linear-gradient(90deg, #1976d2 0%, #1565c0 100%);
 }
 
@@ -139,13 +144,16 @@ p a {
 }
 
 /* ===== GOVERNMENT NAVIGATION SYSTEM ===== */
-.navbar {
+.navbar,
+#navbar-container .navbar {
     background: var(--dkest-color);
     border: none;
     padding: 0;
+    margin: 0; /* Ensure no margin issues */
 }
 
-.navbar ul {
+.navbar ul,
+#navbar-container .navbar ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,18 +162,21 @@ p a {
     list-style-type: none;
 }
 
-.navbar li {
+.navbar li,
+#navbar-container .navbar li {
     margin: 0;
     border-right: 1px solid rgba(255,255,255,0.1);
     position: relative;
     display: inline-block;
 }
 
-.navbar li:last-child {
+.navbar li:last-child,
+#navbar-container .navbar li:last-child {
     border-right: none;
 }
 
-.navbar a {
+.navbar a,
+#navbar-container .navbar a {
     color: white;
     padding: 16px 24px;
     font-size: 13px;
@@ -177,13 +188,15 @@ p a {
     display: block;
 }
 
-.navbar a:hover, .navbar a[aria-current="page"] {
+.navbar a:hover, .navbar a[aria-current="page"],
+#navbar-container .navbar a:hover, #navbar-container .navbar a[aria-current="page"] {
     background: var(--accent);
     color: white;
 }
 
 /* Dropdown menus for government navbar */
-.navbar li > ul {
+.navbar li > ul,
+#navbar-container .navbar li > ul {
     background-color: var(--dkest-color);
     display: none;
     position: absolute;
@@ -195,7 +208,8 @@ p a {
     z-index: 1000;
 }
 
-.navbar li > ul li {
+.navbar li > ul li,
+#navbar-container .navbar li > ul li {
     display: block;
     margin: 0;
     width: 100%;
@@ -203,11 +217,13 @@ p a {
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.navbar li > ul li:last-child {
+.navbar li > ul li:last-child,
+#navbar-container .navbar li > ul li:last-child {
     border-bottom: none;
 }
 
-.navbar li > ul a {
+.navbar li > ul a,
+#navbar-container .navbar li > ul a {
     padding: 12px 20px;
     text-align: left;
     border-radius: 0;
@@ -215,27 +231,46 @@ p a {
     color: white;
 }
 
-.navbar li > ul a:hover {
+.navbar li > ul a:hover,
+#navbar-container .navbar li > ul a:hover {
     background: var(--accent);
     color: white;
 }
 
-.navbar li:hover > ul {
+.navbar li:hover > ul,
+#navbar-container .navbar li:hover > ul {
     display: block;
 }
 
 /* Third-level dropdowns */
-.navbar ul ul ul {
+.navbar ul ul ul,
+#navbar-container .navbar ul ul ul {
     position: absolute;
     left: 100%;
     top: 0;
 }
 
+/* ===== NAVBAR CONTAINER POSITIONING ===== */
+#navbar-container {
+    margin: 0;
+    padding: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 /* ===== MAIN LAYOUT STRUCTURE ===== */
 .wrapper {
     display: flex;
-    flex-wrap: wrap;
-    min-height: 500px;
+    align-items: stretch;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+#left-sidebar,
+.main-content,
+#right-sidebar {
+    display: flex;
+    flex-direction: column;
 }
 
 #left-sidebar {
@@ -248,7 +283,6 @@ p a {
 .main-content {
     flex: 1;
     border: 1px solid var(--border-color);
-    min-height: 500px;
     background-color: white;
 }
 
@@ -258,6 +292,7 @@ p a {
     border-left: none;
     background-color: var(--lt-color);
 }
+
 
 .content {
     padding: 15px;
@@ -654,18 +689,21 @@ textarea {
         border-bottom: none;
     }
     
-    .navbar {
+    .navbar,
+    #navbar-container .navbar {
         padding: 5px 0;
     }
     
-    .navbar li {
+    .navbar li,
+    #navbar-container .navbar li {
         display: block;
         margin: 5px 0;
         border-right: none;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
-    .navbar a {
+    .navbar a,
+    #navbar-container .navbar a {
         padding: 10px;
         display: block;
     }
@@ -677,11 +715,13 @@ textarea {
 }
 
 @media (max-width: 768px) {
-    .navbar ul {
+    .navbar ul,
+    #navbar-container .navbar ul {
         flex-direction: column;
     }
     
-    .navbar li {
+    .navbar li,
+    #navbar-container .navbar li {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -717,7 +757,8 @@ textarea {
         padding: 10px;
     }
     
-    .navbar li > ul {
+    .navbar li > ul,
+    #navbar-container .navbar li > ul {
         position: static;
         display: block;
         box-shadow: none;
@@ -725,7 +766,8 @@ textarea {
         background-color: var(--dkest-color);
     }
     
-    .navbar li > ul a {
+    .navbar li > ul a,
+    #navbar-container .navbar li > ul a {
         color: white;
         padding-left: 30px;
     }
@@ -742,7 +784,8 @@ textarea {
 
 /* Focus styles for keyboard navigation */
 a:focus,
-.navbar a:focus {
+.navbar a:focus,
+#navbar-container .navbar a:focus {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
